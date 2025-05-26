@@ -4,6 +4,7 @@ import classes from './Header.module.css';
 import { SlLocationPin } from 'react-icons/sl';
 import { IoSearchSharp, IoCartOutline } from 'react-icons/io5';
 import LowerHeader from './LowerHeader';
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -12,9 +13,9 @@ function Header() {
         <div className={classes.header_container}>
           {/* Logo */}
           <div className={classes.logo_container}>
-            <a href="#">
+            <Link to="/">
               <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazon logo" />
-            </a>
+            </Link>
           </div>
 
           {/* Delivery */}
@@ -37,29 +38,29 @@ function Header() {
 
           {/* Right Side */}
           <div className={classes.order_container}>
-            <a href="#" className={classes.language}>
+            <Link to="#" className={classes.language}>
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg/1920px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg.png" alt="US flag" />
               <select>
                 <option value="">EN</option>
               </select>
-            </a>
+            </Link>
 
-            <a href="#">
+            <Link to="/auth">
               <div>
                 <p>Sign In</p>
                 <span>Account & Lists</span>
               </div>
-            </a>
+            </Link>
 
-            <a href="#">
+            <Link to="/Order">
               <p>Returns</p>
               <span>& Orders</span>
-            </a>
+            </Link>
 
-            <a href="#" className={classes.cart}>
+            <Link to="/Cart" className={classes.cart}>
               <IoCartOutline />
               <span>0</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
