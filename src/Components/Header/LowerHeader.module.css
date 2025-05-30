@@ -59,7 +59,12 @@
     border-radius: 3px;
 }
 
-@media screen and (max-width: 576px) {
-    .lower_container ul li:not(:first-child) {
-            display: none;   }
+@media screen and (max-width: 768px) {
+    .lower_container ul li {
+        display: none !important;
+    }
+
+    .lower_container ul li:first-child {
+        display: flex !important;
+    }
 }
