@@ -1,8 +1,12 @@
 import React from 'react'
+import Layout from '../../Components/Layout/Layout'
 
 function Payment() {
   return (
-    <div>Payment</div>
+    <Layout>
+      <div>Payment</div>
+    </Layout>
+    
   )
 }
 

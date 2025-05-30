@@ -1,3 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.fixed {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
 .header_container {
     background-color: #1a1a1a;
     display: flex;
@@ -6,7 +16,7 @@
     color: white;
     height: 70px;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 .logo_container {
@@ -35,7 +45,7 @@
 .delivery p {
     font-size: 10px;
 }
-
+/*
 .search {
     display: flex;
     align-items: center;
@@ -70,6 +80,51 @@
 
 .search svg:hover {
     background-color: #d49644;
+}
+*/
+
+.search {
+    display: flex;
+    flex: 1;
+    max-width: 700px;
+    height: 40px;
+    margin: 0 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search select {
+    width: 60px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    background-color: #f3f3f3;
+    font-size: 14px;
+    height: 100%;
+}
+
+.search input {
+    flex: 1;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    height: 100%;
+}
+
+.search_icon {
+    width: 45px;
+    background-color: #febd69;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.search_icon svg {
+    font-size: 20px; 
 }
 
 .search :focus-within {

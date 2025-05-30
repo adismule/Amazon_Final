@@ -3,7 +3,10 @@ import { Routes, Route } from 'react-router-dom';import Landing from './Pages/La
 import Payment from './Pages/Payment/Payment'
 import SignUp from './Pages/Auth/SignUp'
 import Order from './Pages/Orders/Order'
+import Category from './Components/Category/Category';
 import Cart from './Pages/Cart/Cart'
+import Results from './Pages/Results/Results';
+import ProductDetail from './Pages/ProductDetail/ProductDetail';
 
 function Routing() {
   return (
@@ -13,7 +16,10 @@ function Routing() {
             <Route path="/auth" element={<SignUp/>}/>
             <Route path="/payments" element={<Payment/>}/>
             <Route path="/Order" element={<Order/>}/>
-            <Route path="/Cart" element={<Cart/>}/>
+            <Route path="/Category" element={<Category/>}/>
+            <Route path="/cart" element={<Cart />} />            
+            <Route path="/category/:categoryName" element={<Results />} />
+            <Route path="/products/:productId" element={<ProductDetail />} />
         </Routes>
     </>
   )

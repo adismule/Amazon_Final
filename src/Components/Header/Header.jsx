@@ -1,24 +1,28 @@
 // src/Components/Header/Header.jsx
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Header.module.css';
 import { SlLocationPin } from 'react-icons/sl';
 import { IoSearchSharp, IoCartOutline } from 'react-icons/io5';
 import LowerHeader from './LowerHeader';
 import { Link } from "react-router-dom";
+import { DataContext } from '../DataProvider/DataProvider';
 
-function Header() {
+
+const Header = () => {
+  const { basket, dispatch } = useContext(DataContext);
+  // const totalItem = basket.reduce((amount,item) => {
+  //   return item.amount + amount 
+  // },0)
+  const totalItem = basket?.reduce((amount, item) => item.amount + amount, 0) || 0;
   return (
     <>
-      <section>
+      <section className={classes.fixed}>
         <div className={classes.header_container}>
-          {/* Logo */}
           <div className={classes.logo_container}>
             <Link to="/">
               <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="amazon logo" />
             </Link>
           </div>
-
-          {/* Delivery */}
           <div className={classes.delivery}>
             <span><SlLocationPin /></span>
             <div>
@@ -26,8 +30,6 @@ function Header() {
               <span>Ethiopia</span>
             </div>
           </div>
-
-          {/* Search */}
           <div className={classes.search}>
             <select>
               <option value="">All</option>
@@ -35,8 +37,6 @@ function Header() {
             <input type="text" placeholder="Search product" />
             <button className={classes.search_icon}><IoSearchSharp /></button>
           </div>
-
-          {/* Right Side */}
           <div className={classes.order_container}>
             <Link to="#" className={classes.language}>
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg/1920px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg.png" alt="US flag" />
@@ -57,9 +57,9 @@ function Header() {
               <span>& Orders</span>
             </Link>
 
-            <Link to="/Cart" className={classes.cart}>
+            <Link to="/cart" className={classes.cart}>
               <IoCartOutline />
-              <span>0</span>
+              <span>{totalItem}</span>
             </Link>
           </div>
         </div>
