@@ -7,7 +7,7 @@ import { DataProvider } from '/src/Components/DataProvider/DataProvider.jsx';
 import {initialState, reducer} from './Utility/reducer'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/Amazon-Project-Class-2025">
   <DataProvider reducer = {reducer} initialState = {initialState}>
     <App />
   </DataProvider>
