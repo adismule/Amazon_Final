@@ -16,7 +16,7 @@ function CarouselComponent() {
       >
         {img.map((imageItemLink, index) => (
           <div key={index}>
-            <img src={imageItemLink}/>
+            <img key={imageItemLink} src={imageItemLink}/>
           </div>
         ))}
       </ReactCarousel>
