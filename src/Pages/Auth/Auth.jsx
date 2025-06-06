@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import classes from './SignUp.module.css';
-import { Link, useNavigate, useNavigation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { auth } from '../../Utility/firebase';
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth'
 import { ClipLoader } from "react-spinners";
@@ -17,11 +17,12 @@ function Auth() {
     signUp: false
   })
 
-  // console.log(password, email)
   const { state, dispatch } = useContext(DataContext);
   const { user } = state;
     console.log(user)
   const navigate = useNavigate();
+  const navStateData = useLocation();
+  console.log(navStateData)
 
   const authHandler = async(e) => {
     e.preventDefault();
@@ -35,10 +36,9 @@ function Auth() {
             user: userInfo.user,
           });
           setLoading({...loading, signIn: false});
-          navigate("/");
+          navigate(navStateData?.state?.redirect|| "/");
         })
         .catch((err) => {
-          // console.log(err);
           setError(err.message);
           setLoading({...loading, signIn: false});
         });
@@ -51,10 +51,8 @@ function Auth() {
             user: userInfo.user,
           });
           setLoading({...loading, signUp:false});
-          // navigate('/');
         })
         .catch((err) => {
-          // console.log(err);
           setError(err.message);
         });
     }
@@ -71,7 +69,20 @@ function Auth() {
 
       <div className={classes.login_container}>
         <h1>Sign In</h1>
-        <form>
+        {
+          navStateData?.state?.msg && (
+            <small 
+            style={{
+              padding: "5px",
+              textAlign: "center",
+              color: "red",
+              fontWeight: "bold",
+            }}
+            >
+          {navStateData.state.msg}
+            </small>
+          )};
+        <form action= "">
           <div>
             <label htmlFor="email">Email</label>
             <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" id="email" />
