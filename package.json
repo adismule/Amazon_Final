@@ -1,18 +1,18 @@
 {
-  "homepage": "https://adismule.github.io/Amazon-Final",
+  "homepage": "https://adismule.github.io/Amazon-Project-Class-2025",
   "name": "amazon-project",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "start": "vite",
-  "dev": "vite",
-  "build": "vite build && cp dist/index.html dist/404.html",
-  "lint": "eslint .",
-  "preview": "vite preview",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-},
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
