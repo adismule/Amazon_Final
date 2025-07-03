@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
     // baseURL: "http://127.0.0.1:5001/clone-d72ca/us-central1/api"
 
     // deployed function of amazon server on render.com
-    https://amazon-backend-project-22mt.onrender.com/
+    // https://amazon-backend-project-22mt.onrender.com/
 });
 
 export { axiosInstance }
